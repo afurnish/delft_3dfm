@@ -9,6 +9,9 @@ Created on Fri May 26 15:06:01 2023
 import pandas as pd
 import numpy as np
 import datetime
+import matplotlib.pyplot as plt
+import ttide as tt
+
 
 # Define the time range
 start_time = datetime.datetime(2023, 6, 1, 0, 0, 0)  # Start time: June 1, 2023, 00:00:00
@@ -34,8 +37,6 @@ print(df)
 
 elevation = np.array(df.Elevation)
 
-import ttide as tt
 time = 1/ (24*12)
-name = tt.t_tide(elevation, dt = 1/12)
-
-
+name = tt.t_tide(elevation, dt = 1/12,out_style='pandas')
+plt.plot(elevation)
